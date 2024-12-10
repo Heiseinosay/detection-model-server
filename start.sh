@@ -1,3 +1,2 @@
-
-gunicorn main:app -w 1 --log-file -
-
+#!/bin/bash
+exec gunicorn -b 0.0.0.0:8080 main:app
