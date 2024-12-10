@@ -37,6 +37,10 @@ si_scaler = joblib.load('scalers/vr_scaler.pkl')
 
 others_profile = pd.read_csv('results\\voice_recognition\\training_full\\vr_other_segment.csv')
 
+@app.route("/home")
+def show_home():
+    return ({"Hello": "Success"})
+
 # preprocessing the audio input
 def pre_process(audio_file):
     target_sr = 22050
@@ -301,5 +305,8 @@ def audio_record():
     response_json = json.dumps(response_data)
     return Response(response_json, mimetype='application/json')
 
+# if __name__ == "__main__":
+#     app.run(debug=True, port=8080)
+
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run()
